@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  nginx:
+    container_name: nginx-purge
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./imgs:/usr/share/nginx/html/imgs
+    restart: unless-stopped
